@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, scissors, paper!</title>
+</head>
+<style>
+    body{
+        background-color: beige;
+        text-align: center;
+    }
+    
+    .img-thumbnail {
+        width: 200px;
+        height: 200px;
+        padding: 20px;
+    }
+
+    .img-thumbnail:hover{
+        background-color:rgb(185, 127, 214);
+        cursor: pointer;
+    }
+    
+    h1 {
+        color: rgb(218, 88, 159);
+        text-align: center;
+        padding: 20px;
+    }
+
+    p{
+        padding: 20px;
+        color: rgb(174, 168, 168);
+    }
+    
+    .container-battleground{
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        padding: 20px;
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+</style>
+
+<body>
+    <h1 class="animate__bounceInDown">Let's play the Rock, Scissors, Paper game!</h1>
+    <div class="container">
+        <img class="img-thumbnail" src="/src/rock.png" alt="rock" id="rock" onclick="userChoose(rock)"></img>
+        <img class="img-thumbnail" src="/src/scissors.png" alt="scissors" id="scissors" onclick="userChoose(scissors)"></img>
+        <img class="img-thumbnail" src="/src/paper.png" alt="paper" id="paper" onclick="userChoose(paper)"></img>
+    <div>
+        <p>--------------------------------------------------------------------------------------------</p>
+    </div>
+    <div class="container-battleground">
+        <div id="chosen" class="battleground"></div>
+        <div id="random" class="battleground"></div>
+    </div>
+    
+    <script>
+        let random = "";
+        
+        function userChoose() {
+            chosen = `<img width="200px" src="${event.target.src}">\n`;
+            return printImage();
+            return chooseRandom();
+        }
+        
+        printImage();
+        function printImage() {
+            document.getElementById('random').innerHTML = `
+                <div id="random">
+                    ${chosen}    
+                </div>
+                `;
+            }
+        
+        chooseRandom(){
+
+        }
+    </script>
+
+    <script src="myscripts.js">
+        startConfetti();
+        confetti.frameInterval = 5;
+
+        audio = new Audio('/src/sound.mp3');
+        audio.play();
+    </script>
+</body>
+</html>
