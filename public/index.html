@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock, scissors, paper!</title>
+    <script type="text/javascript" src="confetti.js"></script>
+    <script defer type="text/javascript" src="index.js"></script>
+
 </head>
 <style>
     body{
@@ -41,51 +44,23 @@
         margin-left: 100px;
         margin-right: 100px;
     }
+
+    #output{
+        font-size: large;
+        color: cornflowerblue;
+    }
 </style>
 
 <body>
     <h1 class="animate__bounceInDown">Let's play the Rock, Scissors, Paper game!</h1>
     <div class="container">
-        <img class="img-thumbnail" src="/src/rock.png" alt="rock" id="rock" onclick="userChoose(rock)"></img>
-        <img class="img-thumbnail" src="/src/scissors.png" alt="scissors" id="scissors" onclick="userChoose(scissors)"></img>
-        <img class="img-thumbnail" src="/src/paper.png" alt="paper" id="paper" onclick="userChoose(paper)"></img>
+        <img class="img-thumbnail" src="/src/rock.png" alt="rock" id="rock" onclick="userSelect('rock')"></img>
+        <img class="img-thumbnail" src="/src/scissors.png" alt="scissors" id="scissors" onclick="userSelect('scissors')"></img>
+        <img class="img-thumbnail" src="/src/paper.png" alt="paper" id="paper" onclick="userSelect('paper')"></img>
     <div>
         <p>--------------------------------------------------------------------------------------------</p>
     </div>
-    <div class="container-battleground">
-        <div id="chosen" class="battleground"></div>
-        <div id="random" class="battleground"></div>
-    </div>
-    
-    <script>
-        let random = "";
-        
-        function userChoose() {
-            chosen = `<img width="200px" src="${event.target.src}">\n`;
-            return printImage();
-            return chooseRandom();
-        }
-        
-        printImage();
-        function printImage() {
-            document.getElementById('random').innerHTML = `
-                <div id="random">
-                    ${chosen}    
-                </div>
-                `;
-            }
-        
-        chooseRandom(){
-
-        }
-    </script>
-
-    <script src="myscripts.js">
-        startConfetti();
-        confetti.frameInterval = 5;
-
-        audio = new Audio('/src/sound.mp3');
-        audio.play();
-    </script>
+    <div id="output"></div>
+    <audio src="/src/sound.mp3" id="my_audio"></audio> 
 </body>
 </html>
